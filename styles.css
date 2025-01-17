@@ -47,10 +47,10 @@ header p {
     opacity: 0.9;
 }
 
-/* 메인 컨테이너 */
+/* 전체 스타일 */
 .container {
     max-width: 800px;
-    margin: -40px auto 20px;
+    margin: auto 20px;
     background: var(--light-beige);
     padding: 30px 20px;
     border-radius: 20px;
@@ -173,7 +173,7 @@ footer {
     padding: 20px;
     background: var(--dark-blue);
     color: white;
-    margin-top: 20px;
+    margin-top: 80px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
@@ -205,29 +205,13 @@ display: none;
 }
 
 
-/* 전체 스타일 */
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, var(--soft-beige), var(--light-beige), var(--light-orange));
-    color: var(--dark-blue);
-    animation: fadeIn 1s ease-out;
-}
 
-/* 전체 스타일 */
-.container {
-    max-width: 800px;
-    margin: -40px auto 20px;
-    background: var(--light-beige);
-    padding: 30px 20px;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1s ease-out;
-}
+
 #nameInput{
     width: 80%;
     margin: 10px;
+    justify-content: center;
+    align-items: center;
 }
 /* 팀 정보 스타일 */
 .team-info, .team-list, #allRooms, .emergency-info {
