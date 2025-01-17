@@ -225,7 +225,10 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     animation: fadeIn 1s ease-out;
 }
-
+#nameInput{
+    width: 80%;
+    margin: 10px;
+}
 /* 팀 정보 스타일 */
 .team-info, .team-list, #allRooms, .emergency-info {
     margin-top: 20px;

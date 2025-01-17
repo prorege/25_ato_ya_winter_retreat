@@ -55,24 +55,20 @@ function resetAndHide() {
         div.style.display = "none";
     });
 }
-
-// 이름으로 조 찾기
 function findTeam() {
     let name = document.getElementById("nameInput").value.trim();
     if (name.toLowerCase() === "maria") {
         name = "마리아";
     }
     const resultDiv = document.getElementById("teamInfo");
-    //Maria 예외처리
-        // 예외 처리: "Maria"는 "마리아"로 변환
 
-    
     // 초기화 및 숨기기
     resetAndHide();
 
     if (!name) {
         resultDiv.innerHTML = "<p>이름을 먼저 입력하세요 :)</p>";
         resultDiv.style.display = "block";
+        resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
         return;
     }
 
@@ -90,13 +86,14 @@ function findTeam() {
             <p><strong>조별 장소:</strong> ${team.location}</p>
         `;
         resultDiv.style.display = "block";
+        resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
     } else {
-        resultDiv.innerHTML = `<p>${name} is not part of any team.</p>`;
+        resultDiv.innerHTML = `<p>${name}는 어떤 팀에도 속하지 않습니다.</p>`;
         resultDiv.style.display = "block";
+        resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
     }
 }
 
-// 모든 조 보기
 function showAllTeams() {
     const resultDiv = document.getElementById("allTeams");
 
@@ -132,7 +129,9 @@ function showAllTeams() {
     tableHtml += "</tbody></table>";
     resultDiv.innerHTML = tableHtml;
     resultDiv.style.display = "block";
+    resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
 }
+
 
 // 비상 연락망 표시
 function showEmergency() {
@@ -147,6 +146,8 @@ function showEmergency() {
         <p><strong>Safety Teacher:</strong> 010-0300-0000</p>
     `;
     emergencyDiv.style.display = "block";
+    emergencyDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
+
 }
 
 // Schedule 정보 표시
@@ -161,6 +162,7 @@ function showSchedule() {
         <img src="schedule.jpg" alt="Schedule" style="max-width: 100%; height: auto;">
     `;
     scheduleDiv.style.display = "block";
+    scheduleDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
 }
 
 // 이름으로 숙소 찾기
@@ -191,9 +193,13 @@ function findRoom() {
             <p><strong>숙소 조원:</strong> ${room.members.join(", ")}</p>
         `;
         resultDiv.style.display = "block";
+        resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
+
     } else {
         resultDiv.innerHTML = `<p>${name}님은 숙소 정보가 없습니다.</p>`;
         resultDiv.style.display = "block";
+        resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
+
     }
 }
 
@@ -226,4 +232,6 @@ function showAllRooms() {
     tableHtml += "</tbody></table>";
     resultDiv.innerHTML = tableHtml;
     resultDiv.style.display = "block";
+    resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
+
 }
