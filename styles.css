@@ -51,9 +51,29 @@ header {
     background: var(--dark-blue);
     clip-path: ellipse(70% 100% at 50% 0%);
 }
-#header-img{
+
+/* 헤더 이미지 스타일 */
+#header-img {
     width: 100%;
+    height: auto; /* 가로 너비에 비례하여 세로 크기 유지 */
+    max-width: 600px; /* 최대 너비 제한 */
+    margin: 0 auto; /* 가운데 정렬 */
+    display: block; /* 블록 요소로 변경 */
 }
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+    #header-img {
+        max-width: 100%; /* 작은 화면에서는 최대 너비를 제한하지 않음 */
+    }
+}
+
+@media (max-width: 480px) {
+    #header-img {
+        max-width: 90%; /* 매우 작은 화면에서는 여백 확보 */
+    }
+}
+
 header h1 {
     font-size: 3rem;
     font-weight: 800;
