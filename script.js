@@ -107,10 +107,10 @@ function showAllTeams() {
             <thead>
                 <tr>
                     <th>Team</th>
-                    <th>Meeting Location</th>
                     <th>Leader</th>
                     <th>Sub-Leader</th>
                     <th>Members</th>
+                    <th>Meeting Location</th>
                 </tr>
             </thead>
             <tbody>
@@ -120,10 +120,11 @@ function showAllTeams() {
         tableHtml += `
             <tr>
                 <td>${team.teamNumber}</td>
-                <td>${team.location}</td>
                 <td>${team.leader}</td>
                 <td>${team.subLeader}</td>
                 <td>${team.members.join(", ")}</td>
+                <td>${team.location}</td>
+                
             </tr>
         `;
     });

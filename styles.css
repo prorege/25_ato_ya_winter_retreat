@@ -7,6 +7,13 @@
     --middle-beige: #ddcdc0;
     --olive-green: #aea385;
     --light-orange: #fdb881;
+    --grd1: #014652;
+    --grd2: #015d64;
+    --grd3: #1a7772;
+    --grd4: #a19074;
+    --grd5: #e09160;
+    --grd6: #e98050;
+    --grd7: #fd9f53 ;
 }
 /* 폰트 정의 */
 @font-face {
@@ -328,3 +335,31 @@ display: none;
         text-align: center;
     }
 } 
+
+#grd1 {
+    background-color: var(--grd1);
+}
+
+#grd2 {
+    background-color: var(--grd2);
+}
+
+#grd3 {
+    background-color: var(--grd3);
+}
+
+#grd4 {
+    background-color: var(--grd4);
+}
+
+#grd5 {
+    background-color: var(--grd5);
+}
+
+#grd6 {
+    background-color: var(--grd6);
+}
+
+#grd7 {
+    background-color: var(--grd7);
+}
