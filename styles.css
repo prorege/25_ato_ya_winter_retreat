@@ -25,6 +25,24 @@ body {
     animation: fadeIn 1s ease-out;
 }
 
+a {
+    text-decoration: none; /* 밑줄 제거 */
+    color: inherit; /* 기본 글씨 색상으로 유지 */
+}
+
+a:visited {
+    color: inherit; /* 방문한 링크도 색상 변경 없이 유지 */
+}
+
+a:active {
+    color: inherit; /* 클릭할 때 색상 변경 없이 유지 */
+    text-decoration: none; /* 클릭 시 밑줄 제거 */
+}
+
+a:focus {
+    outline: none; /* 포커스 시 테두리 제거 */
+}
+
 /* 헤더 스타일 */
 header {
     text-align: center;

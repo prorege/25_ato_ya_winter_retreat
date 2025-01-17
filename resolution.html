@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결단문 - 아직 작성할 시간이 아닙니다</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: 'MaruBuri-Bold', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px;
+            flex: 1;
+        }
+
+        .message {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .message p {
+            margin: 20px 0;
+            font-size: 18px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>결단문 작성</h1>
+        <p>아직 결단문을 적는 시간이 아닙니다</p>
+    </header>
+
+    <div class="container">
+        <div class="message">
+            <p>현재 결단문 페이지가 열리지 않았습니다. 마지막 일정 이후 작성할 수 있습니다.</p>
+            <button onclick="goBack()">뒤로가기</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 새로 고침 | Designed with 🌿 by <a href="https://www.youtube.com/@hewilldoit">Antioch Church</a></p>
+    </footer>
+
+    <script>
+        // 뒤로가기 버튼 기능
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
