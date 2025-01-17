@@ -51,7 +51,9 @@ header {
     background: var(--dark-blue);
     clip-path: ellipse(70% 100% at 50% 0%);
 }
-
+#header-img{
+    width: 100%;
+}
 header h1 {
     font-size: 3rem;
     font-weight: 800;

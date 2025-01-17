@@ -47,7 +47,9 @@ function resetAndHide() {
         document.getElementById("allTeams"),
         document.getElementById("scheduleInfo"),
         document.getElementById("roomInfo"),
-        document.getElementById("allRooms")
+        document.getElementById("allRooms"),
+        document.getElementById("resolutionInfo"),
+
     ];
 
     divs.forEach(div => {
@@ -88,7 +90,7 @@ function findTeam() {
         resultDiv.style.display = "block";
         resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
     } else {
-        resultDiv.innerHTML = `<p>${name}는 어떤 팀에도 속하지 않습니다.</p>`;
+        resultDiv.innerHTML = `<p>"${name}"은/는 어떤 팀에도 속하지 않습니다.<br>"만약 등록을 했음에도 검색이 되지 않는다면 <a href="tel:01012341234"><strong>01020402300</strong></a>으로 연락해주세요."</p>`;
         resultDiv.style.display = "block";
         resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
     }
@@ -165,6 +167,18 @@ function showSchedule() {
     scheduleDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
 }
 
+function showResolution() {
+    const resolutionDiv = document.getElementById("resolutionInfo");
+    resetAndHide();
+
+    resolutionDiv.innerHTML = `
+        <h2>Resolution</h2>
+        <p>아직 결단문 작성 시간이 되지 않았습니다(구글설문지로 연결 예정).</p>
+    `;
+    resolutionDiv.style.display = "block";
+    resolutionDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
+}
+
 // 이름으로 숙소 찾기
 function findRoom() {
     let name = document.getElementById("nameInput").value.trim();
@@ -196,7 +210,9 @@ function findRoom() {
         resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
 
     } else {
-        resultDiv.innerHTML = `<p>${name}님은 숙소 정보가 없습니다.</p>`;
+        resultDiv.innerHTML = `<p>"${name}"은/는 숙소에 배정되지 않았습니다.<br>
+        "만약 등록을 했음에도 검색이 되지 않는다면 
+        <strong><a href="tel:01012341234">01020402300</a></strong>으로 연락해주세요."</p>`;
         resultDiv.style.display = "block";
         resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
 
