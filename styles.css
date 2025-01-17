@@ -47,10 +47,10 @@ header p {
     opacity: 0.9;
 }
 
-/* 전체 스타일 */
+/* 메인 컨테이너 */
 .container {
     max-width: 800px;
-    margin: auto 20px;
+    margin: 40px auto 20px;
     background: var(--light-beige);
     padding: 30px 20px;
     border-radius: 20px;
