@@ -1,0 +1,303 @@
+/* 색상 변수 */
+:root {
+    --dark-blue: #024854;
+    --light-beige: #eec5af;
+    --soft-beige: #f0d6bd;
+    --orange: #fe8445;
+    --middle-beige: #ddcdc0;
+    --olive-green: #aea385;
+    --light-orange: #fdb881;
+}
+/* 폰트 정의 */
+@font-face {
+    font-family: 'MaruBuri-Bold';
+    src: url('TTF/MaruBuri-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+/* 전체 스타일 */
+body {
+    font-family: 'MaruBuri-Bold', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, var(--soft-beige), var(--light-beige), var(--light-orange));
+    color: var(--dark-blue);
+    animation: fadeIn 1s ease-out;
+}
+
+/* 헤더 스타일 */
+header {
+    text-align: center;
+    padding: 50px 20px;
+    color: #ffffff;
+    background: var(--dark-blue);
+    clip-path: ellipse(70% 100% at 50% 0%);
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+/* 메인 컨테이너 */
+.container {
+    max-width: 800px;
+    margin: -40px auto 20px;
+    background: var(--light-beige);
+    padding: 30px 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+/* 입력창 및 버튼 스타일 */
+input, button {
+    padding: 15px;
+    margin: 10px 0;
+    font-size: 16px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    background-color: var(--middle-beige);
+}
+
+button {
+    background-color: var(--orange);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    background-color: var(--light-orange);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* 팀 정보 스타일 */
+.team-info, .team-list, .emergency-info {
+    margin-top: 20px;
+    animation: fadeIn 1s ease-out;
+}
+
+.team-info, .emergency-info {
+    background: var(--light-beige);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.team-info h2, .emergency-info h2 {
+    font-size: 1.8rem;
+    color: var(--dark-blue);
+    margin-bottom: 10px;
+}
+
+.team-info p, .emergency-info p {
+    margin: 5px 0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* 테이블 스타일 */
+.team-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.team-list th, .team-list td {
+    border: 1px solid var(--middle-beige);
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.team-list th {
+    background-color: var(--dark-blue);
+    color: white;
+    border: none;
+}
+
+.team-list tr:nth-child(even) {
+    background-color: var(--soft-beige);
+}
+
+.team-list tr:hover {
+    background-color: var(--light-beige);
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+    .team-info p {
+        font-size: 0.9rem;
+    }
+
+    .team-list th, .team-list td {
+        font-size: 0.8rem;
+    }
+
+    .team-list table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .team-list table th, .team-list table td {
+        text-align: center;
+    }
+}
+
+/* 푸터 */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--dark-blue);
+    color: white;
+    margin-top: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+footer a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* 기본적으로 모든 컴포넌트 숨기기 */
+#teamInfo, #allTeams, #emergencyInfo, #scheduleInfo, #allRooms, #roomInfo{
+display: none;
+}
+
+
+/* 전체 스타일 */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, var(--soft-beige), var(--light-beige), var(--light-orange));
+    color: var(--dark-blue);
+    animation: fadeIn 1s ease-out;
+}
+
+/* 전체 스타일 */
+.container {
+    max-width: 800px;
+    margin: -40px auto 20px;
+    background: var(--light-beige);
+    padding: 30px 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+/* 팀 정보 스타일 */
+.team-info, .team-list, #allRooms, .emergency-info {
+    margin-top: 20px;
+    animation: fadeIn 1s ease-out;
+}
+
+.team-info, #allRooms, .emergency-info {
+    background: var(--light-beige);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.team-info h2, #allRooms h2, .emergency-info h2 {
+    font-size: 1.8rem;
+    color: var(--dark-blue);
+    margin-bottom: 10px;
+}
+
+.team-info p, #allRooms p, .emergency-info p {
+    margin: 5px 0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* 테이블 스타일 */
+#allRooms table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#allRooms th, #allRooms td {
+    border: 1px solid var(--middle-beige);
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+#allRooms th {
+    background-color: var(--dark-blue);
+    color: white;
+    border: none;
+}
+
+#allRooms tr:nth-child(even) {
+    background-color: var(--soft-beige);
+}
+
+#allRooms tr:hover {
+    background-color: var(--light-beige);
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+    .team-info p, #allRooms p {
+        font-size: 0.9rem;
+    }
+
+    .team-list th, .team-list td, #allRooms th, #allRooms td {
+        font-size: 0.8rem;
+    }
+
+    #allRooms table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    #allRooms table th, #allRooms table td {
+        text-align: center;
+    }
+} 

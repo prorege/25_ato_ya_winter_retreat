@@ -1,0 +1,66 @@
+{
+    "rooms": [
+      {
+        "location": "구성전 헌금계수방 1",
+        "roomNumber": 1,
+        "leader": "성서윤",
+        "subLeader": "김경은은",
+        "members": ["마리아", "이예원", "조선미", "홍성민", "남누림", "차유민"]
+      },      {
+        "location": "구성전 헌금계수방 2",
+        "roomNumber": 2,
+        "leader": "심수아",
+        "subLeader": "백예람",
+        "members": ["이예송", "최원진", "정서윤", "김여경", "권라윤", "이시원"]
+      },      {
+        "location": "구성전 지하예배실",
+        "roomNumber": 3,
+        "leader": "심수아",
+        "subLeader": "백예람",
+        "members": ["이예송", "최원진", "정서윤", "김여경", "권라윤", "이시원"]
+      },      
+      {
+        "location": "신성전 태영아실",
+        "roomNumber": 4,
+        "leader": "심수아",
+        "subLeader": "백예람",
+        "members": ["이예송", "최원진", "정서윤", "김여경", "권라윤", "이시원"]
+      },      
+      {
+        "location": "신성전 유치부실",
+        "roomNumber": 5,
+        "leader": "심수아",
+        "subLeader": "백예람",
+        "members": ["이예송", "최원진", "정서윤", "김여경", "권라윤", "이시원"]
+      },      
+      {
+        "location": "신성전 노약자실",
+        "roomNumber": 6,
+        "leader": "심수아",
+        "subLeader": "백예람",
+        "members": ["이예송", "최원진", "정서윤", "김여경", "권라윤", "이시원"]
+      },      
+      {
+        "location": "북삼전문교회",
+        "roomNumber": 7,
+        "leader": "심수아",
+        "subLeader": "백예람",
+        "members": ["이예송", "최원진", "정서윤", "김여경", "권라윤", "이시원"]
+      },
+      {
+        "location": "오태전문교회",
+        "roomNumber": 8,
+        "leader": "심수아",
+        "subLeader": "백예람",
+        "members": ["이예송", "최원진", "정서윤", "김여경", "권라윤", "이시원"]
+      },
+      {
+        "location": "상모전문교회",
+        "roomNumber": 9,
+        "leader": "심수아",
+        "subLeader": "백예람",
+        "members": ["이예송", "최원진", "정서윤", "김여경", "권라윤", "이시원"]
+      }
+    ]
+  }
+  

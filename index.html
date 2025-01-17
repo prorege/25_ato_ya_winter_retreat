@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>새로 고침 - Team Info Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+
+        <h1>새로고침(F5)</h1>
+        <p>To put on the new self, <br>created after the likeness of God <br>in true righteousness and holiness.</p>
+    </header>
+    <div class="container">
+        <input type="text" id="nameInput" placeholder="이름을 입력하세요 (e.g., 심수아)">
+        <button onclick="findTeam()">내 조 찾기</button>
+        <button onclick="showAllTeams()">전체 조 보기</button>
+        <button onclick="findRoom()">내 숙소 찾기</button>
+        <button onclick="showAllRooms()">전체 숙소표 보기</button>
+        <button onclick="showEmergency()">응급 연락망</button>
+        <button onclick="showSchedule()">일정</button>
+
+        <div class="team-info" id="teamInfo"></div>
+        <div class="team-list" id="allTeams"></div>
+        <div id="roomInfo" style="display: none;"></div>
+        <div id="allRooms" style="display: none;"></div>
+        <div class="emergency-info" id="emergencyInfo"></div>
+        <div class="schedule-info" id="scheduleInfo"></div>
+
+    </div>
+    <footer>
+        <p>&copy; 2025 새로 고침 | Designed with 🌿 by <a href="https://www.youtube.com/@hewilldoit">Antioch Church</a></p>
+    </footer>
+
+  <script src="script.js"></script>
+<!-- <script src="room.js"></script> -->
+</body>
+</html>
