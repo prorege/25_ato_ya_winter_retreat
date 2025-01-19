@@ -49,7 +49,7 @@ function resetAndHide() {
         document.getElementById("roomInfo"),
         document.getElementById("allRooms"),
         document.getElementById("resolutionInfo"),
-
+        document.getElementById("foodInfo"),
     ];
 
     divs.forEach(div => {
@@ -232,6 +232,41 @@ function showAllRooms() {
                 <tr>
                     <th>Location</th>
                     <th>Members</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+
+    roomData.forEach(room => {
+        tableHtml += `
+            <tr>
+                <td>${room.location}</td>
+                <td>${room.members.join(", ")}</td>
+            </tr>
+        `;
+    });
+
+    tableHtml += "</tbody></table>";
+    resultDiv.innerHTML = tableHtml;
+    resultDiv.style.display = "block";
+    resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
+
+}
+
+function showFood() {
+    const resultDiv = document.getElementById("foodInfo");
+
+    // 초기화 및 숨기기
+    resetAndHide();
+
+    let tableHtml = `
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>1일차 점심</th>
+                    <th>1일차 저녁</th>
+                    <th>2일차 아침</th>
+                    <th>2일차 점심</th>
                 </tr>
             </thead>
             <tbody>

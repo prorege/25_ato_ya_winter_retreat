@@ -7,13 +7,13 @@
     --middle-beige: #ddcdc0;
     --olive-green: #aea385;
     --light-orange: #fdb881;
-    --grd1: #014652;
-    --grd2: #015d64;
-    --grd3: #1a7772;
-    --grd4: #a19074;
-    --grd5: #e09160;
-    --grd6: #e98050;
-    --grd7: #fd9f53 ;
+    --grd1: #014551;
+    --grd2: #015a62;
+    --grd3: #217775;
+    --grd4: #989275;
+    --grd5: #b0aa86;
+    --grd6: #bb9978;
+    --grd7: #df7547;
 }
 /* 폰트 정의 */
 @font-face {
@@ -22,33 +22,22 @@
     font-weight: normal;
     font-style: normal;
 }
+html{
+    background-color: white;
+}
 /* 전체 스타일 */
 body {
     font-family: 'MaruBuri-Bold', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, var(--soft-beige), var(--light-beige), var(--light-orange));
-    color: var(--dark-blue);
+    /* color: var(--dark-blue); */
     animation: fadeIn 1s ease-out;
+    /* background: var(--grd1); */
+    background-size: 100% 100%;
+    background-color: white;
 }
 
-a {
-    text-decoration: none; /* 밑줄 제거 */
-    color: inherit; /* 기본 글씨 색상으로 유지 */
-}
 
-a:visited {
-    color: inherit; /* 방문한 링크도 색상 변경 없이 유지 */
-}
-
-a:active {
-    color: inherit; /* 클릭할 때 색상 변경 없이 유지 */
-    text-decoration: none; /* 클릭 시 밑줄 제거 */
-}
-
-a:focus {
-    outline: none; /* 포커스 시 테두리 제거 */
-}
 
 /* 헤더 스타일 */
 header {
@@ -98,11 +87,22 @@ header p {
 .container {
     max-width: 800px;
     margin: 40px auto 20px;
-    background: var(--light-beige);
     padding: 30px 20px;
     border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     animation: fadeIn 1s ease-out;
+    /* background: linear-gradient(180deg,
+        var(--grd1),
+        var(--grd2),
+        var(--grd3),
+        var(--grd4),
+        var(--grd5),
+        var(--grd6),
+        var(--grd7)
+    ); */
+    background-color: #fff;
+    background-size: 100% 100%;
+
 }
 
 /* 입력창 및 버튼 스타일 */
@@ -121,8 +121,9 @@ input {
 }
 
 button {
-    background-color: var(--orange);
+    background-color: var(--olive-green);
     color: white;
+    border: 1px solid var(--grd7);
     font-weight: bold;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -336,30 +337,3 @@ display: none;
     }
 } 
 
-#grd1 {
-    background-color: var(--grd1);
-}
-
-#grd2 {
-    background-color: var(--grd2);
-}
-
-#grd3 {
-    background-color: var(--grd3);
-}
-
-#grd4 {
-    background-color: var(--grd4);
-}
-
-#grd5 {
-    background-color: var(--grd5);
-}
-
-#grd6 {
-    background-color: var(--grd6);
-}
-
-#grd7 {
-    background-color: var(--grd7);
-}
