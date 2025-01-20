@@ -14,6 +14,7 @@
     --grd5: #b0aa86;
     --grd6: #bb9978;
     --grd7: #df7547;
+    --grd8: #8a4122;
 }
 /* 폰트 정의 */
 @font-face {
@@ -22,9 +23,6 @@
     font-weight: normal;
     font-style: normal;
 }
-html{
-    background-color: white;
-}
 /* 전체 스타일 */
 body {
     font-family: 'MaruBuri-Bold', sans-serif;
@@ -32,9 +30,18 @@ body {
     padding: 0;
     /* color: var(--dark-blue); */
     animation: fadeIn 1s ease-out;
-    /* background: var(--grd1); */
+    /* background: linear-gradient(180deg,
+        var(--grd1),
+        var(--grd2),
+        var(--grd3),
+        var(--grd4),
+        var(--grd5),
+        var(--grd6),
+        var(--grd7)
+    ); */
+    /* background-color: #840808; */
     background-size: 100% 100%;
-    background-color: white;
+    
 }
 
 
@@ -47,6 +54,7 @@ header {
     background: var(--dark-blue);
     clip-path: ellipse(70% 100% at 50% 0%);
 }
+
 
 /* 헤더 이미지 스타일 */
 #header-img {
@@ -100,7 +108,7 @@ header p {
         var(--grd6),
         var(--grd7)
     ); */
-    background-color: #fff;
+    background-color: rgb(245, 235, 235);
     background-size: 100% 100%;
 
 }
@@ -117,13 +125,12 @@ input, button {
 }
 
 input {
-    background-color: var(--middle-beige);
+    background-color: var(white);
 }
 
 button {
     background-color: var(--olive-green);
     color: white;
-    border: 1px solid var(--grd7);
     font-weight: bold;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -140,25 +147,25 @@ button:active {
 }
 
 /* 팀 정보 스타일 */
-.team-info, .team-list, .emergency-info {
+.team-info, .team-list, #roomInfo, .emergency-info {
     margin-top: 20px;
     animation: fadeIn 1s ease-out;
 }
 
-.team-info, .emergency-info {
+.team-info, #roomInfo, .emergency-info {
     background: var(--light-beige);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.team-info h2, .emergency-info h2 {
+.team-info h2, #roomInfo h2, .emergency-info h2 {
     font-size: 1.8rem;
     color: var(--dark-blue);
     margin-bottom: 10px;
 }
 
-.team-info p, .emergency-info p {
+.team-info p, #roomInfo p, .emergency-info p {
     margin: 5px 0;
     font-size: 1rem;
     line-height: 1.5;
@@ -183,6 +190,7 @@ button:active {
 .team-list th {
     background-color: var(--dark-blue);
     color: white;
+    
     border: none;
 }
 
@@ -196,7 +204,7 @@ button:active {
 
 /* 반응형 스타일 */
 @media (max-width: 768px) {
-    .team-info p {
+    .team-info p, #roomInfo p {
         font-size: 0.9rem;
     }
 
@@ -215,15 +223,16 @@ button:active {
     }
 }
 
+
 /* 푸터 */
 footer {
     text-align: center;
     padding: 20px;
-    background: var(--dark-blue);
-    color: white;
+    background-color: var(--dark-blue);
+    color: var(--middle-beige);
     margin-top: 80px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 footer a {
@@ -248,7 +257,7 @@ footer a:hover {
     }
 }
 /* 기본적으로 모든 컴포넌트 숨기기 */
-#teamInfo, #allTeams, #emergencyInfo, #scheduleInfo, #allRooms, #roomInfo{
+#teamInfo, #allTeams, #emergencyInfo, #scheduleInfo, #allRooms, #roomInfo, #foodInfo   {
 display: none;
 }
 
@@ -256,13 +265,18 @@ display: none;
 
 
 #nameInput{
-    width: 80%;
+    width: 86%;
     margin: 10px;
     justify-content: center;
     align-items: center;
+
 }
+
+#nameInput::placeholder {
+    color: #333; /* 원하는 색상으로 변경 */
+  }
 /* 팀 정보 스타일 */
-.team-info, .team-list, #allRooms, .emergency-info {
+.team-info, .team-list, #allRooms, .emergency-info, #roomInfo {
     margin-top: 20px;
     animation: fadeIn 1s ease-out;
 }
@@ -287,7 +301,7 @@ display: none;
 }
 
 /* 테이블 스타일 */
-#allRooms table {
+#allRooms table #foodInfo table{
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
@@ -295,24 +309,24 @@ display: none;
     overflow: hidden;
 }
 
-#allRooms th, #allRooms td {
+#allRooms th, #allRooms td, #foodInfo th, #foodInfo td  {
     border: 1px solid var(--middle-beige);
     padding: 12px 15px;
     text-align: left;
     font-size: 0.9rem;
 }
 
-#allRooms th {
+#allRooms th, #foodInfo th {
     background-color: var(--dark-blue);
     color: white;
     border: none;
 }
 
-#allRooms tr:nth-child(even) {
+#allRooms tr:nth-child(even), #foodInfo tr:nth-child(even) {
     background-color: var(--soft-beige);
 }
 
-#allRooms tr:hover {
+#allRooms tr:hover{
     background-color: var(--light-beige);
 }
 
@@ -337,3 +351,38 @@ display: none;
     }
 } 
 
+
+
+#grd1 {
+    background-color: var(--grd1);
+}
+
+#grd2 {
+    background-color: var(--grd2);
+}
+
+#grd3 {
+    background-color: var(--grd3);
+}
+
+#grd4 {
+    background-color: var(--grd4);
+}
+
+#grd5 {
+    /* background-color: var(--grd5); */
+    color: rgb(244, 17, 17);
+    background-color: #fff;
+}
+
+#grd6 {
+    background-color: var(--grd5);
+}
+
+#grd7 {
+    background-color: var(--grd6);
+}
+
+#grd8 {
+    background-color: var(--grd7);
+}

@@ -11,7 +11,7 @@ style.innerHTML = `
         font-family: 'MaruBuri-Bold', sans-serif;
         margin: 0;
         padding: 0;
-        background: linear-gradient(135deg, var(--soft-beige), var(--light-beige), var(--light-orange));
+        background: white;
         color: var(--dark-blue);
         animation: fadeIn 1s ease-out;
     }
@@ -50,6 +50,7 @@ function resetAndHide() {
         document.getElementById("allRooms"),
         document.getElementById("resolutionInfo"),
         document.getElementById("foodInfo"),
+
     ];
 
     divs.forEach(div => {
@@ -81,18 +82,71 @@ function findTeam() {
             <h2>새로고침을 원하는 <br>${name}!</h2>
             <h3>당신은 ${team.teamNumber}조입니다!</h3>
             <hr>
-            <p><strong>조:</strong> ${team.teamNumber}</p>
-            <p><strong>조장:</strong> ${team.leader}</p>
-            <p><strong>부조장:</strong> ${team.subLeader}</p>
-            <p><strong>조원:</strong> ${team.members.join(", ")}</p>
+            <br>
+            <p><strong>조장</strong></p>
+            <p> - ${team.leader}</p>
+            <br>
+            <p><strong>부조장</strong></p>
+            <p> - ${team.subLeader}</p>
+            <br>
+            <p><strong>조원</strong></p>
+            <p>- ${team.members.join(", ")}</p>
+            <br>
+            <hr>
+            <br>
             <p><strong>조별 장소:</strong> ${team.location}</p>
+            <br>
         `;
         resultDiv.style.display = "block";
         resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
     } else {
-        resultDiv.innerHTML = `<p>"${name}"은/는 어떤 팀에도 속하지 않습니다.<br>"만약 등록을 했음에도 검색이 되지 않는다면 <a href="tel:01012341234"><strong>01020402300</strong></a>으로 연락해주세요."</p>`;
+        resultDiv.innerHTML = `<p>"${name}"은/는 어떤 팀에도 속하지 않습니다.<br>
+        "만약 등록을 했음에도 검색이 되지 않는다면 
+        <a href="tel:010-8034-2717">010-8034-2717</a>으로 연락해주세요."</p>`;
         resultDiv.style.display = "block";
         resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
+    }
+}
+
+
+// 이름으로 숙소 찾기
+function findRoom() {
+    let name = document.getElementById("nameInput").value.trim();
+    if (name.toLowerCase() === "maria") {
+        name = "마리아";
+    }
+    const resultDiv = document.getElementById("roomInfo");
+
+    // 초기화 및 숨기기
+    resetAndHide();
+
+    if (!name) {
+        resultDiv.innerHTML = "<p>이름을 먼저 입력하세요 :)</p>";
+        resultDiv.style.display = "block";
+        resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
+
+        return;
+    }
+
+    const room = roomData.find(room => room.members.includes(name));
+
+    if (room) {
+        resultDiv.innerHTML = `
+            <h2>${name}님의 숙소 정보</h2>
+            <hr>
+            <h3><strong>${room.location}</strong></h3>
+            <p>- ${room.members.join(", ")}</p>
+        `;
+        resultDiv.style.display = "block";
+        resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
+
+    } else {
+        resultDiv.innerHTML = `<p>"${name}"은/는 숙소에 배정되지 않았습니다.<br>
+        "만약 등록을 했음에도 검색이 되지 않는다면 
+        <strong><a href="tel:01095257973">01095257973</a></strong>으로 연락해주세요."</p>`;
+        resultDiv.style.display = "block";
+        resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
+
     }
 }
 
@@ -101,6 +155,7 @@ function showAllTeams() {
 
     // 초기화 및 숨기기
     resetAndHide();
+    resultDiv.innerHTML = '<h2> 조편성 </h2><p>옆으로 밀어서 확인하세요 :)</p>';
 
     let tableHtml = `
         <table>
@@ -130,11 +185,50 @@ function showAllTeams() {
     });
 
     tableHtml += "</tbody></table>";
-    resultDiv.innerHTML = tableHtml;
+    resultDiv.innerHTML += tableHtml;
     resultDiv.style.display = "block";
     resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
 }
 
+
+function showAllRooms() {
+    const resultDiv = document.getElementById("allRooms");
+
+    // 초기화 및 숨기기
+    resetAndHide();
+    resultDiv.innerHTML = '<h2> 숙소 </h2><p>옆으로 밀어서 확인하세요 :)</p><br>';
+    let tableHtml = `
+        <table class="styled-table">
+            <thead>
+                <tr>
+    `;
+
+    // 열에 각 Location을 헤더로 추가
+    roomData.forEach(room => {
+        tableHtml += `<th>${room.location}</th>`;
+    });
+
+    tableHtml += `</tr></thead><tbody>`;
+
+    // 각 멤버들을 행으로 추가
+    const maxMembersCount = Math.max(...roomData.map(room => room.members.length));
+    for (let i = 0; i < maxMembersCount; i++) {
+        tableHtml += "<tr>";
+
+        roomData.forEach(room => {
+            // 각 location마다 해당 행에 멤버 추가 (멤버가 없으면 빈 문자열)
+            const member = room.members[i] || "";
+            tableHtml += `<td>${member}</td>`;
+        });
+
+        tableHtml += "</tr>";
+    }
+
+    tableHtml += "</tbody></table>";
+    resultDiv.innerHTML += tableHtml;
+    resultDiv.style.display = "block";
+    resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
+}
 
 // 비상 연락망 표시
 function showEmergency() {
@@ -144,9 +238,10 @@ function showEmergency() {
     resetAndHide();
 
     emergencyDiv.innerHTML = `
-        <h2>Emergency Contacts</h2>
-        <p><strong>Health Teacher:</strong> 010-0000-0000</p>
-        <p><strong>Safety Teacher:</strong> 010-0300-0000</p>
+        <h2>비상 연락망</h2>
+
+        <p><strong>보건 선생님: </strong><a href="tel:010-8696-5407">010-8696-5407</a></p>
+        <p><strong>안전(보안) 스태프:</strong> <a href="tel:010-8034-2717">010-8034-2717</a></p>
     `;
     emergencyDiv.style.display = "block";
     emergencyDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
@@ -180,110 +275,71 @@ function showResolution() {
     resolutionDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
 }
 
-// 이름으로 숙소 찾기
-function findRoom() {
-    let name = document.getElementById("nameInput").value.trim();
-    if (name.toLowerCase() === "maria") {
-        name = "마리아";
-    }
-    const resultDiv = document.getElementById("roomInfo");
-
-    // 초기화 및 숨기기
-    resetAndHide();
-
-    if (!name) {
-        resultDiv.innerHTML = "<p>이름을 먼저 입력하세요 :)</p>";
-        resultDiv.style.display = "block";
-        return;
-    }
-
-    const room = roomData.find(room => room.members.includes(name));
-
-    if (room) {
-        resultDiv.innerHTML = `
-            <h2>${name}님의 숙소 정보</h2>
-            <hr>
-            <p><strong>숙소 번호:</strong> ${room.roomNumber}</p>
-            <p><strong>숙소 위치:</strong> ${room.location}</p>
-            <p><strong>숙소 조원:</strong> ${room.members.join(", ")}</p>
-        `;
-        resultDiv.style.display = "block";
-        resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
-
-    } else {
-        resultDiv.innerHTML = `<p>"${name}"은/는 숙소에 배정되지 않았습니다.<br>
-        "만약 등록을 했음에도 검색이 되지 않는다면 
-        <strong><a href="tel:01012341234">01020402300</a></strong>으로 연락해주세요."</p>`;
-        resultDiv.style.display = "block";
-        resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
-
-    }
-}
-
-function showAllRooms() {
-    const resultDiv = document.getElementById("allRooms");
-
-    // 초기화 및 숨기기
-    resetAndHide();
-
-    let tableHtml = `
-        <table class="styled-table">
-            <thead>
-                <tr>
-                    <th>Location</th>
-                    <th>Members</th>
-                </tr>
-            </thead>
-            <tbody>
-    `;
-
-    roomData.forEach(room => {
-        tableHtml += `
-            <tr>
-                <td>${room.location}</td>
-                <td>${room.members.join(", ")}</td>
-            </tr>
-        `;
-    });
-
-    tableHtml += "</tbody></table>";
-    resultDiv.innerHTML = tableHtml;
-    resultDiv.style.display = "block";
-    resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
-
-}
 
 function showFood() {
     const resultDiv = document.getElementById("foodInfo");
 
     // 초기화 및 숨기기
     resetAndHide();
-
-    let tableHtml = `
-        <table class="styled-table">
-            <thead>
-                <tr>
-                    <th>1일차 점심</th>
-                    <th>1일차 저녁</th>
-                    <th>2일차 아침</th>
-                    <th>2일차 점심</th>
-                </tr>
-            </thead>
-            <tbody>
+    
+    // 초기화 후에 h2, p 태그 추가
+    resultDiv.innerHTML = ` 
+        <h2>Menu</h2>
+        <p>벌써 위장이 새로고침됐나요?</p>
     `;
 
-    roomData.forEach(room => {
-        tableHtml += `
-            <tr>
-                <td>${room.location}</td>
-                <td>${room.members.join(", ")}</td>
-            </tr>
-        `;
-    });
+    // 식단표 데이터 로드
+    fetch("menuData.json") // JSON 파일에서 데이터 로드
+        .then(response => response.json())
+        .then(menuData => {
+            let tableHtml = `
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>날짜</th>
+                            <th>시간</th>
+                            <th>메뉴1</th>
+                            <th>메뉴2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
 
-    tableHtml += "</tbody></table>";
-    resultDiv.innerHTML = tableHtml;
-    resultDiv.style.display = "block";
-    resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
+            menuData.forEach(menu => {
+                // 메뉴를 나눠서 표시
+                if (menu.menu.length > 1 && menu.menu.some(item => item.startsWith("메뉴"))) {
+                    const menu1 = menu.menu.find(item => item.startsWith("메뉴1:")) || "";
+                    const menu2 = menu.menu.find(item => item.startsWith("메뉴2:")) || "";
 
+                    tableHtml += `
+                        <tr>
+                            <td>${menu.date}</td>
+                            <td>${menu.time}</td>
+                            <td>${menu1.replace("메뉴1:", "").trim()}</td>
+                            <td>${menu2.replace("메뉴2:", "").trim()}</td>
+                        </tr>
+                    `;
+                } else {
+                    // 일반적인 메뉴 표시
+                    tableHtml += `
+                        <tr>
+                            <td>${menu.date}</td>
+                            <td>${menu.time}</td>
+                            <td colspan="2">${menu.menu.join(", ")}</td>
+                        </tr>
+                    `;
+                }
+            });
+
+            tableHtml += "</tbody></table>";
+            resultDiv.innerHTML += tableHtml; // 기존 내용 뒤에 메뉴 테이블을 추가
+            
+            resultDiv.style.display = "block";
+            resultDiv.scrollIntoView({ behavior: "smooth" }); // 스크롤 이동
+        })
+        .catch(error => {
+            console.error("식단표 데이터를 불러오는 중 오류 발생:", error);
+            resultDiv.innerHTML = "<p>식단표를 불러올 수 없습니다. 나중에 다시 시도해주세요.</p>";
+            resultDiv.style.display = "block";
+        });
 }
