@@ -138,7 +138,9 @@ function findRoom() {
             <h2>${name}님의 숙소 정보</h2>
             <hr>
             <h3><strong>${room.location}</strong></h3>
-            <p>- ${room.members.join(", ")}</p>
+            <h4><strong>방장 : ${room.leader} </strong></h4>
+            <h4><strong>부방장 : ${room.subLeader}</strong></h4>
+            <p>방원 ${room.members.join(", ")}</p>
         `;
         resultDiv.style.display = "block";
         resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
@@ -182,7 +184,7 @@ function showAllTeams() {
                 <td>${team.teamNumber}</td>
                 <td>${team.leader}</td>
                 <td>${team.subLeader}</td>
-                <td>${team.members.join(", ")}</td>
+                <td>${team.members.join(" ")}</td>
                 <td>${team.locations[0]}</td>
                 <td>${team.locations[1]}</td>
                 <td>${team.locations[2]}</td>
@@ -196,46 +198,54 @@ function showAllTeams() {
     resultDiv.style.display = "block";
     resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
 }
-
-
 function showAllRooms() {
     const resultDiv = document.getElementById("allRooms");
 
     // 초기화 및 숨기기
     resetAndHide();
     resultDiv.innerHTML = '<h2> 숙소 </h2><p>옆으로 밀어서 확인하세요 :)</p><br>';
+    
+    // 테이블의 기본 HTML 구조
     let tableHtml = `
         <table class="styled-table">
             <thead>
                 <tr>
+                    <th>Location</th>
+                    <th>방장</th>
+                    <th>부방장</th>
+                    <th>방원</th> <!-- 방원 열 추가 -->
+                </tr>
+            </thead>
+            <tbody>
     `;
 
-    // 열에 각 Location을 헤더로 추가
+    // 각 Location에 대해 세로로 출력
     roomData.forEach(room => {
-        tableHtml += `<th>${room.location}</th>`;
-    });
-
-    tableHtml += `</tr></thead><tbody>`;
-
-    // 각 멤버들을 행으로 추가
-    const maxMembersCount = Math.max(...roomData.map(room => room.members.length));
-    for (let i = 0; i < maxMembersCount; i++) {
         tableHtml += "<tr>";
 
-        roomData.forEach(room => {
-            // 각 location마다 해당 행에 멤버 추가 (멤버가 없으면 빈 문자열)
-            const member = room.members[i] || "";
-            tableHtml += `<td>${member}</td>`;
-        });
+        // Location을 세로로 추가
+        tableHtml += `<td>${room.location}</td>`;
 
-        tableHtml += "</tr>";
-    }
+        // 방장 추가
+        tableHtml += `<td>${room.leader}</td>`;
+
+        // 부방장 추가
+        tableHtml += `<td>${room.subLeader || ""}</td>`; // 부방장이 없으면 빈 문자열 처리
+
+    // 방원 추가 (방원의 수는 방마다 다를 수 있으므로)
+    let membersHtml = room.members.join(" "); // 각 방원의 이름을 공백으로 구분하여 가로로 나열
+    tableHtml += `<td>${membersHtml}</td>`; // 방원들을 가로로 출력
+
+    tableHtml += "</tr>";
+
+    });
 
     tableHtml += "</tbody></table>";
     resultDiv.innerHTML += tableHtml;
     resultDiv.style.display = "block";
     resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
 }
+
 
 // 비상 연락망 표시
 function showEmergency() {
