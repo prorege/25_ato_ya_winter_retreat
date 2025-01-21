@@ -58,6 +58,7 @@ function resetAndHide() {
         div.style.display = "none";
     });
 }
+// 나의 조 찾기
 function findTeam() {
     let name = document.getElementById("nameInput").value.trim();
     if (name.toLowerCase() === "maria") {
@@ -94,7 +95,9 @@ function findTeam() {
             <br>
             <hr>
             <br>
-            <p><strong>조별 장소:</strong> ${team.location}</p>
+            <p><strong>조별 장소1 :</strong> ${team.locations[0]}</p>
+            <p><strong>조별 장소2 :</strong> ${team.locations[1]}</p>
+            <p><strong>조별 장소3 :</strong> ${team.locations[2]}</p>
             <br>
         `;
         resultDiv.style.display = "block";
@@ -161,11 +164,13 @@ function showAllTeams() {
         <table>
             <thead>
                 <tr>
-                    <th>Team</th>
-                    <th>Leader</th>
-                    <th>Sub-Leader</th>
-                    <th>Members</th>
-                    <th>Meeting Location</th>
+                    <th>조</th>
+                    <th>조장</th>
+                    <th>부조장</th>
+                    <th>조원</th>
+                    <th>조별모임장소1</th>
+                    <th>조별모임장소2</th>
+                    <th>조별모임장소3</th>
                 </tr>
             </thead>
             <tbody>
@@ -178,7 +183,9 @@ function showAllTeams() {
                 <td>${team.leader}</td>
                 <td>${team.subLeader}</td>
                 <td>${team.members.join(", ")}</td>
-                <td>${team.location}</td>
+                <td>${team.locations[0]}</td>
+                <td>${team.locations[1]}</td>
+                <td>${team.locations[2]}</td>
                 
             </tr>
         `;
@@ -240,7 +247,7 @@ function showEmergency() {
     emergencyDiv.innerHTML = `
         <h2>비상 연락망</h2>
 
-        <p><strong>보건 선생님: </strong><a href="tel:010-8696-5407">010-8696-5407</a></p>
+        <p><strong>보건 선생님: </strong><a href="tel:010-6798-7754">010-8696-5407</a></p>
         <p><strong>안전(보안) 스태프:</strong> <a href="tel:010-8034-2717">010-8034-2717</a></p>
     `;
     emergencyDiv.style.display = "block";
@@ -269,7 +276,7 @@ function showResolution() {
 
     resolutionDiv.innerHTML = `
         <h2>Resolution</h2>
-        <p>아직 결단문 작성 시간이 되지 않았습니다(구글설문지로 연결 예정).</p>
+        <p>아직 결단문 작성 시간이 되지 않았습니다.</p>
     `;
     resolutionDiv.style.display = "block";
     resolutionDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동

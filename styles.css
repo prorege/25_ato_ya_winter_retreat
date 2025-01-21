@@ -52,7 +52,7 @@ header {
     padding: 50px 20px;
     color: #ffffff;
     background: var(--dark-blue);
-    clip-path: ellipse(70% 100% at 50% 0%);
+    clip-path: ellipse(100% 100% at 50% 0%);
 }
 
 
@@ -355,6 +355,7 @@ display: none;
 
 #grd1 {
     background-color: var(--grd1);
+    margin-top: 30px;
 }
 
 #grd2 {
