@@ -180,7 +180,7 @@ button:active {
     overflow: hidden;
 }
 
-.team-list th, .team-list td {
+.team-list th, .team-list td{
     border: 1px solid var(--middle-beige);
     padding: 12px 15px;
     text-align: left;
@@ -199,6 +199,16 @@ button:active {
 }
 
 .team-list tr:hover {
+    background-color: var(--light-beige);
+}
+#allRooms tbody{
+    background-color: #eed29d;
+}
+#allRooms tr:nth-child(even) {
+    background-color: var(--soft-beige);
+}
+
+#allRooms tr:hover {
     background-color: var(--light-beige);
 }
 
