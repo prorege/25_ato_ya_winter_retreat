@@ -57,8 +57,7 @@ function resetAndHide() {
         div.innerHTML = "";
         div.style.display = "none";
     });
-}
-// 나의 조 찾기
+}// 나의 조 찾기
 function findTeam() {
     let name = document.getElementById("nameInput").value.trim();
     if (name.toLowerCase() === "maria") {
@@ -73,6 +72,52 @@ function findTeam() {
         resultDiv.innerHTML = "<p>이름을 먼저 입력하세요 :)</p>";
         resultDiv.style.display = "block";
         resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
+        return;
+    }
+
+    // 동명이인 예외 처리
+    if (name === "이시원") {
+        // 지역 선택을 위한 팝업을 띄움
+        let region = prompt("동명이인이 존재합니다. 지역을 선택해주세요. (구미 또는 서울)");
+
+        if (region === "구미" || region === "서울") {
+            // 해당 지역을 바탕으로 팀 정보 찾기
+            const team = teamData.find(team => team.members.includes(name + `(${region})`) || team.leader === name + `(${region})` || team.subLeader === name + `(${region})`);
+
+            if (team) {
+                resultDiv.innerHTML = `
+                    <h2>새로고침을 원하는 <br>${name}!</h2>
+                    <h3>당신은 ${team.teamNumber}조입니다!</h3>
+                    <hr>
+                    <br>
+                    <p><strong>조장</strong></p>
+                    <p> - ${team.leader}</p>
+                    <br>
+                    <p><strong>부조장</strong></p>
+                    <p> - ${team.subLeader}</p>
+                    <br>
+                    <p><strong>조원</strong></p>
+                    <p>- ${team.members.join(", ")}</p>
+                    <br>
+                    <hr>
+                    <br>
+                    <p><strong>조별 장소1 :</strong> ${team.locations[0]}</p>
+                    <p><strong>조별 장소2 :</strong> ${team.locations[1]}</p>
+                    <p><strong>조별 장소3 :</strong> ${team.locations[2]}</p>
+                    <br>
+                `;
+                resultDiv.style.display = "block";
+                resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
+            } else {
+                resultDiv.innerHTML = `<p>"${name} (${region})"은/는 어떤 팀에도 속하지 않습니다.<br>
+                "만약 등록을 했음에도 검색이 되지 않는다면 
+                <a href="tel:010-8034-2717">010-8034-2717</a>으로 연락해주세요."</p>`;
+                resultDiv.style.display = "block";
+                resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
+            }
+        } else {
+            alert("올바른 지역을 선택해주세요.");
+        }
         return;
     }
 
@@ -111,7 +156,6 @@ function findTeam() {
     }
 }
 
-
 // 이름으로 숙소 찾기
 function findRoom() {
     let name = document.getElementById("nameInput").value.trim();
@@ -127,7 +171,39 @@ function findRoom() {
         resultDiv.innerHTML = "<p>이름을 먼저 입력하세요 :)</p>";
         resultDiv.style.display = "block";
         resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
+        return;
+    }
 
+    // 동명이인 예외 처리
+    if (name === "이시원") {
+        // 지역 선택을 위한 팝업을 띄움
+        let region = prompt("동명이인이 존재합니다. 지역을 선택해주세요. (구미 또는 서울)");
+
+        if (region === "구미" || region === "서울") {
+            // 해당 지역을 바탕으로 숙소 정보 찾기
+            const room = roomData.find(room => room.members.includes(name + `(${region})`));
+
+            if (room) {
+                resultDiv.innerHTML = `
+                    <h2>${name}님의 숙소 정보</h2>
+                    <hr>
+                    <h3><strong>${room.location}</strong></h3>
+                    <h4><strong>방장 : ${room.leader} </strong></h4>
+                    <h4><strong>부방장 : ${room.subLeader}</strong></h4>
+                    <p>방원 : ${room.members.join(", ")}</p>
+                `;
+                resultDiv.style.display = "block";
+                resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
+            } else {
+                resultDiv.innerHTML = `<p>"${name} (${region})"은/는 숙소에 배정되지 않았습니다.<br>
+                "만약 등록을 했음에도 검색이 되지 않는다면 
+                <strong><a href="tel:01095257973">01095257973</a></strong>으로 연락해주세요."</p>`;
+                resultDiv.style.display = "block";
+                resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
+            }
+        } else {
+            alert("올바른 지역을 선택해주세요.");
+        }
         return;
     }
 
@@ -144,16 +220,15 @@ function findRoom() {
         `;
         resultDiv.style.display = "block";
         resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
-
     } else {
         resultDiv.innerHTML = `<p>"${name}"은/는 숙소에 배정되지 않았습니다.<br>
         "만약 등록을 했음에도 검색이 되지 않는다면 
         <strong><a href="tel:01095257973">01095257973</a></strong>으로 연락해주세요."</p>`;
         resultDiv.style.display = "block";
         resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
-
     }
 }
+
 
 function showAllTeams() {
     const resultDiv = document.getElementById("allTeams");
