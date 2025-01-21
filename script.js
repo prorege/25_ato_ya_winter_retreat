@@ -140,7 +140,7 @@ function findRoom() {
             <h3><strong>${room.location}</strong></h3>
             <h4><strong>방장 : ${room.leader} </strong></h4>
             <h4><strong>부방장 : ${room.subLeader}</strong></h4>
-            <p>방원 ${room.members.join(", ")}</p>
+            <p>방원 : ${room.members.join(", ")}</p>
         `;
         resultDiv.style.display = "block";
         resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
@@ -274,7 +274,7 @@ function showSchedule() {
 
     scheduleDiv.innerHTML = `
         <h2>Schedule</h2>
-        <img src="schedule.jpg" alt="Schedule" style="max-width: 100%; height: auto;">
+        <img src="img/schedule.jpg" alt="Schedule" style="max-width: 100%; height: auto;">
     `;
     scheduleDiv.style.display = "block";
     scheduleDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
