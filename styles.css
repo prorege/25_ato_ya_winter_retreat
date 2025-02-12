@@ -1,20 +1,20 @@
 /* 색상 변수 */
 :root {
-    --dark-blue: #024854;
-    --light-beige: #eec5af;
-    --soft-beige: #f0d6bd;
-    --orange: #fe8445;
-    --middle-beige: #ddcdc0;
-    --olive-green: #aea385;
-    --light-orange: #fdb881;
-    --grd1: #014551;
-    --grd2: #015a62;
-    --grd3: #217775;
-    --grd4: #989275;
-    --grd5: #b0aa86;
-    --grd6: #bb9978;
-    --grd7: #df7547;
-    --grd8: #8a4122;
+    --dark-blue: #191a1a;
+    --light-beige: #d3b7ca;
+    --soft-beige: #000000;
+    --orange: #878787;
+    --middle-beige: #fcfcfc;
+    --olive-green: #630d5d;
+    --light-orange: #c14686;
+    --grd1: #fcfcfc;
+    --grd2: #dbdcdc;
+    --grd3: #b3b3b3;
+    --grd4: #969696;
+    --grd5: #6e6e6e;
+    --grd6: #565656;
+    --grd7: #2d2d2c;
+    --grd8: #030303;
 }
 /* 폰트 정의 */
 @font-face {
@@ -108,7 +108,7 @@ header p {
         var(--grd6),
         var(--grd7)
     ); */
-    background-color: rgb(245, 235, 235);
+    background-color: rgb(233, 251, 252);
     background-size: 100% 100%;
 
 }
@@ -238,8 +238,8 @@ button:active {
 footer {
     text-align: center;
     padding: 20px;
-    background-color: var(--dark-blue);
-    color: var(--middle-beige);
+    background-color:#011e3a;
+    color:#628cb3;
     margin-top: 80px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;

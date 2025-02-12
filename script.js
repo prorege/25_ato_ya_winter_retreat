@@ -349,7 +349,7 @@ function showSchedule() {
 
     scheduleDiv.innerHTML = `
         <h2>Schedule</h2>
-        <img src="img/schedule.jpg" alt="Schedule" style="max-width: 100%; height: auto;">
+        <img src="img/schedule.png" alt="Schedule" style="max-width: 100%; height: auto;">
     `;
     scheduleDiv.style.display = "block";
     scheduleDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
