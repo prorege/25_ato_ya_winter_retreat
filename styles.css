@@ -44,6 +44,41 @@ body {
     
 }
 
+/* 눈 기본 스타일 */
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: white;
+    font-size: 12px;
+    user-select: none;
+    pointer-events: none;
+    z-index: 9999;
+    animation: fall linear infinite;
+}
+
+/* 눈이 내리는 애니메이션 */
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* 헤더 아래에 눈 쌓이는 효과 */
+#header-snow {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: white;
+    border-radius: 50% 50% 0 0;
+    opacity: 0.8;
+    z-index: 10;
+}
 
 
 /* 헤더 스타일 */
@@ -99,18 +134,8 @@ header p {
     border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     animation: fadeIn 1s ease-out;
-    /* background: linear-gradient(180deg,
-        var(--grd1),
-        var(--grd2),
-        var(--grd3),
-        var(--grd4),
-        var(--grd5),
-        var(--grd6),
-        var(--grd7)
-    ); */
     background-color: rgb(233, 251, 252);
     background-size: 100% 100%;
-
 }
 
 /* 입력창 및 버튼 스타일 */
@@ -396,4 +421,32 @@ display: none;
 
 #grd8 {
     background-color: var(--grd7);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* 2열로 배치 */
+    gap: 10px;  /* 버튼 간격 */
+    max-width: 500px; /* 최대 너비 조정 */
+    margin: 0 auto; /* 가운데 정렬 */
+    padding: 20px;
+}
+
+.grid-item {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.grid-item:hover {
+    background: #e9ecef;
+}
+
+.full-width {
+    grid-column: span 2; /* 입력창을 전체 너비로 */
 }

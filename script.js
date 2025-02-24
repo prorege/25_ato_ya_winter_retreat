@@ -86,7 +86,7 @@ function findTeam() {
 
             if (team) {
                 resultDiv.innerHTML = `
-                    <h2>새로고침을 원하는 <br>${name}!</h2>
+                    <h2>정결한 그릇, <br>${name}!</h2>
                     <h3>당신은 ${team.teamNumber}조입니다!</h3>
                     <hr>
                     <br>
@@ -125,7 +125,7 @@ function findTeam() {
 
     if (team) {
         resultDiv.innerHTML = `
-            <h2>새로고침을 원하는 <br>${name}!</h2>
+            <h2>정결한 그릇, <br>${name}!</h2>
             <h3>당신은 ${team.teamNumber}조입니다!</h3>
             <hr>
             <br>
@@ -332,7 +332,7 @@ function showEmergency() {
     emergencyDiv.innerHTML = `
         <h2>비상 연락망</h2>
 
-        <p><strong>보건 선생님: </strong><a href="tel:010-6798-7754">010-8696-5407</a></p>
+        <p><strong>보건 스태프: </strong><a href="tel:010-6798-7754">010-8696-5407</a></p>
         <p><strong>안전(보안) 스태프:</strong> <a href="tel:010-8034-2717">010-8034-2717</a></p>
     `;
     emergencyDiv.style.display = "block";
@@ -377,7 +377,7 @@ function showFood() {
     // 초기화 후에 h2, p 태그 추가
     resultDiv.innerHTML = ` 
         <h2>Menu</h2>
-        <p>벌써 위장이 새로고침됐나요?</p>
+        <p>영혼이 배불러도 육신이 배고픈 건 힘들어...</p>
     `;
 
     // 식단표 데이터 로드
@@ -435,3 +435,26 @@ function showFood() {
             resultDiv.style.display = "block";
         });
 }
+
+function createSnowflake() {
+    const snowflake = document.createElement("div");
+    snowflake.classList.add("snowflake");
+    snowflake.innerHTML = "❄";  // 눈 모양
+    document.body.appendChild(snowflake);
+
+    const startLeft = Math.random() * window.innerWidth;
+    const duration = Math.random() * 1 + 5; // 2~5초 랜덤 속도
+    const size = Math.random() * 0 + 5; // 5~15px 크기
+
+    snowflake.style.left = `${startLeft}px`;
+    snowflake.style.fontSize = `${size}px`;
+    snowflake.style.animationDuration = `${duration}s`;
+
+    // 일정 시간 후 제거
+    setTimeout(() => {
+        snowflake.remove();
+    }, duration * 1000);
+}
+
+// 눈이 계속 내리게 설정
+setInterval(createSnowflake, 200);

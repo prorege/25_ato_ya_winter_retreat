@@ -16,33 +16,34 @@
 </head>
 
 <body>
-    <header>
+    <header id="header">
         <img src="img/f5.png" alt="f5" id="header-img">
         <p>So flee youthful passions <br>and pursue righteousness, <br>faith, love, and peace, <br>along with those <br>who call on the Lord <br>from a pure heart. <br>2 Timothy 2:22</p>
+        <div id="header-snow"></div> <!-- 눈이 쌓이는 부분 -->
     </header>
-    <div class="container">
-        <!-- input -->
-        <input type="text" id="nameInput" placeholder="이름을 입력하세요 (e.g., 심수아)">
-        <!-- button -->
-        <button id="grd1" onclick="findTeam()">나의 조 찾기 🔍</button>
-        <button id="grd2" onclick="findRoom()">나의 숙소 찾기 🏠</button>
-        <button id="grd3" onclick="showAllTeams()">전체 조 보기 👥</button>
-        <button id="grd4" onclick="showAllRooms()">전체 숙소표 보기 👨‍👩‍👧‍👦</button>
-        <button id="grd5" onclick="showEmergency()">응급 연락망 📞</button>
-        <button id="grd6" onclick="showSchedule()">일정 📅</button>
-        <button id="grd7" onclick="showFood()"> 식단표 🍲</button>
-        <button id="grd8" onclick="showResolution()">결단문 ✍️</button>
-        <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLScLdc2FLMuhawpWhSJX9OgKLBN0QPAxBvKYYyIDdtLoOwrhNQ/viewform"></a> -->
-
-            <!-- output -->
-        <div class="team-info" id="teamInfo"></div>
-        <div id="roomInfo" style="display: none;"></div>
-        <div class="team-list" id="allTeams"></div>
-        <div id="allRooms" style="display: none;"></div>
-        <div class="emergency-info" id="emergencyInfo"></div>
-        <div class="schedule-info" id="scheduleInfo"></div>
-        <div id="foodInfo" style="display: none;"></div>
-        <div class="resolution-info" id="resolutionInfo"></div>
+    
+    
+    <div class="grid-container">
+        <input type="text" id="nameInput" placeholder="이름을 입력하세요 (e.g., 이찬희)" class="grid-item full-width">
+        
+        <button id="grd8" class="grid-item" onclick="findTeam()">나의 조 찾기 🔍</button>
+        <button id="grd2" class="grid-item" onclick="findRoom()">나의 숙소 찾기 🏠</button>
+        <button id="grd3" class="grid-item" onclick="showAllTeams()">전체 조 보기 👥</button>
+        <button id="grd4" class="grid-item" onclick="showAllRooms()">전체 숙소표 보기 👨‍👩‍👧‍👦</button>
+        <button id="grd5" class="grid-item" onclick="showEmergency()">응급 연락망 📞</button>
+        <button id="grd6" class="grid-item" onclick="showSchedule()">일정 📅</button>
+        <button id="grd7" class="grid-item" onclick="showFood()">식단표 🍲</button>
+        <button id="grd8" class="grid-item" onclick="showResolution()">결단문 ✍️</button>            <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLScLdc2FLMuhawpWhSJX9OgKLBN0QPAxBvKYYyIDdtLoOwrhNQ/viewform"></a> -->
+    </div>
+        <!-- output -->
+        <div class="grid-item" class="team-info" id="teamInfo"></div>
+        <div class="grid-item" id="roomInfo" style="display: none;"></div>
+        <div class="grid-item" class="team-list" id="allTeams"></div>
+        <div class="grid-item" id="allRooms" style="display: none;"></div>
+        <div class="grid-item" class="emergency-info" id="emergencyInfo"></div>
+        <div class="grid-item" class="schedule-info" id="scheduleInfo"></div>
+        <div class="grid-item" id="foodInfo" style="display: none;"></div>
+        <div class="grid-item" class="resolution-info" id="resolutionInfo"></div>
 
     </div>
     <!-- footer -->
