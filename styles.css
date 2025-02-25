@@ -29,7 +29,7 @@
 body {
     font-family: 'MaruBuri-Bold', sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 0;
     animation: fadeIn 1s ease-out;
     background-size: 100% 100%;
 }
@@ -100,9 +100,6 @@ header p {
     animation: fadeIn 1s ease-out;
     background-color: rgb(233, 251, 252);
 }
-.results {
-    padding: 2px 0px;
-}
 
 /* 입력창 및 버튼 스타일 */
 input, button {
@@ -123,6 +120,7 @@ button {
     font-weight: bold;
     cursor: pointer;
     transition: all 0.2s ease;
+    box-shadow: black 1px;
 }
 
 button:hover {
@@ -131,6 +129,9 @@ button:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+#grd5{
+    color: red;
+}
 /* 팀 정보 스타일 */
 #teamInfo, .team-list, #roomInfo, .emergency-info, #allRooms, #foodInfo {
     margin-top: 20px;
@@ -210,6 +211,11 @@ button:hover {
         overflow-x: auto;
         white-space: nowrap;
     }
+}
+
+.results{
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 /* 푸터 */

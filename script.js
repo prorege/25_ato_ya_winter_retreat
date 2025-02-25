@@ -267,7 +267,7 @@ function showAllRooms() {
 
     // 초기화 및 숨기기
     resetAndHide();
-    resultDiv.innerHTML = '<h2> 숙소 </h2><p>옆으로 밀어서 확인하세요 :)</p><br>';
+    resultDiv.innerHTML = '<h2> 숙소 </h2><p>옆으로 밀어서 확인하세요 :)</p>';
     
     // 테이블의 기본 HTML 구조
     let tableHtml = `
