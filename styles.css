@@ -2,10 +2,10 @@
 :root {
     --dark-blue: #191a1a;
     --light-beige: #d3b7ca;
-    --soft-beige: #000000;
+    --soft-beige: #dfb288;
     --orange: #878787;
     --middle-beige: #fcfcfc;
-    --olive-green: #630d5d;
+    --olive-green: #d4b9d3;
     --light-orange: #c14686;
     --grd1: #fcfcfc;
     --grd2: #dbdcdc;
@@ -16,6 +16,7 @@
     --grd7: #2d2d2c;
     --grd8: #030303;
 }
+
 /* 폰트 정의 */
 @font-face {
     font-family: 'MaruBuri-Bold';
@@ -23,25 +24,14 @@
     font-weight: normal;
     font-style: normal;
 }
+
 /* 전체 스타일 */
 body {
     font-family: 'MaruBuri-Bold', sans-serif;
     margin: 0;
-    padding: 0;
-    /* color: var(--dark-blue); */
+    padding: 20px;
     animation: fadeIn 1s ease-out;
-    /* background: linear-gradient(180deg,
-        var(--grd1),
-        var(--grd2),
-        var(--grd3),
-        var(--grd4),
-        var(--grd5),
-        var(--grd6),
-        var(--grd7)
-    ); */
-    /* background-color: #840808; */
     background-size: 100% 100%;
-    
 }
 
 /* 눈 기본 스타일 */
@@ -58,28 +48,9 @@ body {
 
 /* 눈이 내리는 애니메이션 */
 @keyframes fall {
-    0% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(100vh);
-        opacity: 0;
-    }
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
 }
-
-/* 헤더 아래에 눈 쌓이는 효과 */
-#header-snow {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 40px;
-    background: white;
-    border-radius: 50% 50% 0 0;
-    opacity: 0.8;
-    z-index: 10;
-}
-
 
 /* 헤더 스타일 */
 header {
@@ -90,27 +61,20 @@ header {
     clip-path: ellipse(100% 100% at 50% 0%);
 }
 
-
 /* 헤더 이미지 스타일 */
 #header-img {
     width: 100%;
-    height: auto; /* 가로 너비에 비례하여 세로 크기 유지 */
-    max-width: 600px; /* 최대 너비 제한 */
-    margin: 0 auto; /* 가운데 정렬 */
-    display: block; /* 블록 요소로 변경 */
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
 }
 
-/* 반응형 스타일 */
 @media (max-width: 768px) {
-    #header-img {
-        max-width: 100%; /* 작은 화면에서는 최대 너비를 제한하지 않음 */
-    }
+    #header-img { max-width: 100%; }
 }
 
 @media (max-width: 480px) {
-    #header-img {
-        max-width: 90%; /* 매우 작은 화면에서는 여백 확보 */
-    }
+    #header-img { max-width: 90%; }
 }
 
 header h1 {
@@ -127,7 +91,7 @@ header p {
 }
 
 /* 메인 컨테이너 */
-.container {
+.grid-container {
     max-width: 800px;
     margin: 40px auto 20px;
     padding: 30px 20px;
@@ -135,7 +99,9 @@ header p {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     animation: fadeIn 1s ease-out;
     background-color: rgb(233, 251, 252);
-    background-size: 100% 100%;
+}
+.grid-item {
+    padding: px 5px;
 }
 
 /* 입력창 및 버튼 스타일 */
@@ -148,11 +114,9 @@ input, button {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-input {
-    background-color: var(white);
+input{
+    width: 90%;
 }
-
 button {
     background-color: var(--olive-green);
     color: white;
@@ -167,97 +131,86 @@ button:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-button:active {
-    transform: translateY(0);
-}
-
 /* 팀 정보 스타일 */
-.team-info, .team-list, #roomInfo, .emergency-info {
+#teamInfo, .team-list, #roomInfo, .emergency-info, #allRooms, #foodInfo {
     margin-top: 20px;
     animation: fadeIn 1s ease-out;
-}
-
-.team-info, #roomInfo, .emergency-info {
-    background: var(--light-beige);
+    background:rgb(233, 231, 252);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.team-info h2, #roomInfo h2, .emergency-info h2 {
+/* 팀 이름 강조 */
+.team-info h2, #roomInfo h2, #teamInfo h2, .emergency-info h2 {
     font-size: 1.8rem;
     color: var(--dark-blue);
     margin-bottom: 10px;
 }
 
-.team-info p, #roomInfo p, .emergency-info p {
-    margin: 5px 0;
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
 /* 테이블 스타일 */
-.team-list table {
+.team-list table,
+#allRooms table,
+#foodInfo table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    border: 2px solid #000;
     border-radius: 10px;
     overflow: hidden;
+    padding: 10px;
 }
 
-.team-list th, .team-list td{
-    border: 1px solid var(--middle-beige);
-    padding: 12px 15px;
+/* 테이블 셀 스타일 */
+.team-list th, .team-list td,
+#allRooms th, #allRooms td,
+#foodInfo th, #foodInfo td {
+    border: 1px solid #000;
+    padding: 15px;
     text-align: left;
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
-.team-list th {
+/* 헤더 스타일 */
+.team-list th, #allRooms th, #foodInfo th {
     background-color: var(--dark-blue);
     color: white;
-    
-    border: none;
+    font-size: 1.2rem;
 }
 
-.team-list tr:nth-child(even) {
+/* 홀수 줄 배경 색상 */
+.team-list tr:nth-child(even),
+#allRooms tr:nth-child(even),
+#foodInfo tr:nth-child(even) {
     background-color: var(--soft-beige);
 }
 
-.team-list tr:hover {
-    background-color: var(--light-beige);
-}
-#allRooms tbody{
-    background-color: #eed29d;
-}
-#allRooms tr:nth-child(even) {
-    background-color: var(--soft-beige);
-}
-
-#allRooms tr:hover {
+/* 테이블 row hover 스타일 */
+.team-list tr:hover,
+#allRooms tr:hover,
+#foodInfo tr:hover {
     background-color: var(--light-beige);
 }
 
-/* 반응형 스타일 */
+/* 스크롤 가능하게 하기 */
+#allRooms table,
+#foodInfo table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+/* 반응형 스타일 (모바일에서 테이블 잘 보이게) */
 @media (max-width: 768px) {
-    .team-info p, #roomInfo p {
+    #teamInfo p, #roomInfo p {
         font-size: 0.9rem;
     }
-
-    .team-list th, .team-list td {
-        font-size: 0.8rem;
-    }
-
     .team-list table {
         display: block;
         overflow-x: auto;
         white-space: nowrap;
     }
-
-    .team-list table th, .team-list table td {
-        text-align: center;
-    }
 }
-
 
 /* 푸터 */
 footer {
@@ -282,171 +235,81 @@ footer a:hover {
 
 /* 애니메이션 */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
+
 /* 기본적으로 모든 컴포넌트 숨기기 */
-#teamInfo, #allTeams, #emergencyInfo, #scheduleInfo, #allRooms, #roomInfo, #foodInfo   {
-display: none;
+#teamInfo, #allTeams, #emergencyInfo, #scheduleInfo, #allRooms, #roomInfo, #foodInfo {
+    display: none;
 }
 
+/* 결과 박스 스타일 */
 
 
-
-#nameInput{
-    width: 86%;
-    margin: 10px;
-    justify-content: center;
-    align-items: center;
-
-}
-
-#nameInput::placeholder {
-    color: #333; /* 원하는 색상으로 변경 */
-  }
-/* 팀 정보 스타일 */
-.team-info, .team-list, #allRooms, .emergency-info, #roomInfo {
-    margin-top: 20px;
-    animation: fadeIn 1s ease-out;
-}
-
-.team-info, #allRooms, .emergency-info {
-    background: var(--light-beige);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.team-info h2, #allRooms h2, .emergency-info h2 {
-    font-size: 1.8rem;
+/* 팀 이름 강조 */
+#teamInfo h2 {
+    font-size: 2rem;
     color: var(--dark-blue);
+    font-weight: bold;
     margin-bottom: 10px;
-}
-
-.team-info p, #allRooms p, .emergency-info p {
-    margin: 5px 0;
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-/* 테이블 스타일 */
-#allRooms table #foodInfo table{
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-#allRooms th, #allRooms td, #foodInfo th, #foodInfo td  {
-    border: 1px solid var(--middle-beige);
-    padding: 12px 15px;
-    text-align: left;
-    font-size: 0.9rem;
-}
-
-#allRooms th, #foodInfo th {
-    background-color: var(--dark-blue);
-    color: white;
-    border: none;
-}
-
-#allRooms tr:nth-child(even), #foodInfo tr:nth-child(even) {
-    background-color: var(--soft-beige);
-}
-
-#allRooms tr:hover{
-    background-color: var(--light-beige);
-}
-
-/* 반응형 스타일 */
-@media (max-width: 768px) {
-    .team-info p, #allRooms p {
-        font-size: 0.9rem;
-    }
-
-    .team-list th, .team-list td, #allRooms th, #allRooms td {
-        font-size: 0.8rem;
-    }
-
-    #allRooms table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-
-    #allRooms table th, #allRooms table td {
-        text-align: center;
-    }
-} 
-
-
-
-#grd1 {
-    background-color: var(--grd1);
-    margin-top: 30px;
-}
-
-#grd2 {
-    background-color: var(--grd2);
-}
-
-#grd3 {
-    background-color: var(--grd3);
-}
-
-#grd4 {
-    background-color: var(--grd4);
-}
-
-#grd5 {
-    /* background-color: var(--grd5); */
-    color: rgb(244, 17, 17);
-    background-color: #fff;
-}
-
-#grd6 {
-    background-color: var(--grd5);
-}
-
-#grd7 {
-    background-color: var(--grd6);
-}
-
-#grd8 {
-    background-color: var(--grd7);
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);  /* 2열로 배치 */
-    gap: 10px;  /* 버튼 간격 */
-    max-width: 500px; /* 최대 너비 조정 */
-    margin: 0 auto; /* 가운데 정렬 */
-    padding: 20px;
-}
-
-.grid-item {
-    background: #f8f9fa;
-    border: 1px solid #ddd;
-    padding: 10px;
-    font-size: 16px;
     text-align: center;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
 }
 
-.grid-item:hover {
-    background: #e9ecef;
+/* 팀 번호 및 역할 강조 */
+#teamInfo h3 {
+    font-size: 1.5rem;
+    color: var(--olive-green);
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.full-width {
-    grid-column: span 2; /* 입력창을 전체 너비로 */
+/* 항목 스타일 */
+#teamInfo p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 5px 0;
+}
+
+#teamInfo p strong {
+    color: var(--dark-blue);
+}
+
+/* 구분선 스타일 */
+#teamInfo hr {
+    border: 1px solid var(--grd2);
+    margin: 20px 0;
+}
+
+/* 연락처 링크 스타일 */
+#teamInfo a {
+    color: var(--light-orange);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#teamInfo a:hover {
+    text-decoration: underline;
+}
+
+/* 공통 스타일 클래스 */
+.result-container {
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 16px;
+    margin-top: 20px;
+    display: none; /* 기본적으로 숨김 */
+}
+
+.result-container p {
+    color: #333;
+    font-weight: bold;
+}
+
+.result-container.show {
+    display: block;
 }

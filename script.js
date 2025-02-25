@@ -57,17 +57,17 @@ function resetAndHide() {
         div.innerHTML = "";
         div.style.display = "none";
     });
-}// 나의 조 찾기
+}
+
+
+// 나의 조 찾기
 function findTeam() {
     let name = document.getElementById("nameInput").value.trim();
-    if (name.toLowerCase() === "maria") {
-        name = "마리아";
-    }
     const resultDiv = document.getElementById("teamInfo");
 
     // 초기화 및 숨기기
     resetAndHide();
-
+// 1번
     if (!name) {
         resultDiv.innerHTML = "<p>이름을 먼저 입력하세요 :)</p>";
         resultDiv.style.display = "block";
@@ -91,7 +91,7 @@ function findTeam() {
                     <hr>
                     <br>
                     <p><strong>조장</strong></p>
-                    <p> - ${team.leader}</p>
+                    <p> | ${team.leader}</p>
                     <br>
                     <p><strong>부조장</strong></p>
                     <p> - ${team.subLeader}</p>
@@ -125,24 +125,15 @@ function findTeam() {
 
     if (team) {
         resultDiv.innerHTML = `
-            <h2>정결한 그릇, <br>${name}!</h2>
+            <h2>정결한 청년, <br>${name}!</h2>
             <h3>당신은 ${team.teamNumber}조입니다!</h3>
             <hr>
             <br>
-            <p><strong>조장</strong></p>
-            <p> - ${team.leader}</p>
+            <p><strong>조장</strong> | ${team.leader}</p>
             <br>
-            <p><strong>부조장</strong></p>
-            <p> - ${team.subLeader}</p>
+            <p><strong>부조장</strong> | ${team.subLeader}</p>
             <br>
-            <p><strong>조원</strong></p>
-            <p>- ${team.members.join(", ")}</p>
-            <br>
-            <hr>
-            <br>
-            <p><strong>조별 장소1 :</strong> ${team.locations[0]}</p>
-            <p><strong>조별 장소2 :</strong> ${team.locations[1]}</p>
-            <p><strong>조별 장소3 :</strong> ${team.locations[2]}</p>
+            <p><strong>조원</strong> | ${team.members.join(", ")}</p>
             <br>
         `;
         resultDiv.style.display = "block";
@@ -159,9 +150,6 @@ function findTeam() {
 // 이름으로 숙소 찾기
 function findRoom() {
     let name = document.getElementById("nameInput").value.trim();
-    if (name.toLowerCase() === "maria") {
-        name = "마리아";
-    }
     const resultDiv = document.getElementById("roomInfo");
 
     // 초기화 및 숨기기
@@ -185,9 +173,9 @@ function findRoom() {
 
             if (room) {
                 resultDiv.innerHTML = `
-                    <h2>${name}님의 숙소 정보</h2>
+                    <h3>${name}님의 숙소 정보</h3>
                     <hr>
-                    <h3><strong>${room.location}</strong></h3>
+                    <h3><strong>숙소 : ${room.location}</strong></h3>
                     <h4><strong>방장 : ${room.leader} </strong></h4>
                     <h4><strong>부방장 : ${room.subLeader}</strong></h4>
                     <p>방원 : ${room.members.join(", ")}</p>
@@ -211,11 +199,10 @@ function findRoom() {
 
     if (room) {
         resultDiv.innerHTML = `
-            <h2>${name}님의 숙소 정보</h2>
+            <h3>${name}님의 숙소 정보</h3>
             <hr>
-            <h3><strong>${room.location}</strong></h3>
+            <h3><strong>숙소 : ${room.location}</strong></h3>
             <h4><strong>방장 : ${room.leader} </strong></h4>
-            <h4><strong>부방장 : ${room.subLeader}</strong></h4>
             <p>방원 : ${room.members.join(", ")}</p>
         `;
         resultDiv.style.display = "block";
@@ -245,14 +232,14 @@ function showAllTeams() {
                     <th>조장</th>
                     <th>부조장</th>
                     <th>조원</th>
-                    <th>조별모임장소1</th>
-                    <th>조별모임장소2</th>
-                    <th>조별모임장소3</th>
+
                 </tr>
             </thead>
             <tbody>
     `;
-
+    // <th>조별모임장소1</th>
+    // <th>조별모임장소2</th>
+    // <th>조별모임장소3</th>
     teamData.forEach(team => {
         tableHtml += `
             <tr>
@@ -260,13 +247,15 @@ function showAllTeams() {
                 <td>${team.leader}</td>
                 <td>${team.subLeader}</td>
                 <td>${team.members.join(" ")}</td>
-                <td>${team.locations[0]}</td>
-                <td>${team.locations[1]}</td>
-                <td>${team.locations[2]}</td>
+
                 
             </tr>
         `;
     });
+
+    // <td>${team.locations[0]}</td>
+    // <td>${team.locations[1]}</td>
+    // <td>${team.locations[2]}</td>
 
     tableHtml += "</tbody></table>";
     resultDiv.innerHTML += tableHtml;
@@ -287,7 +276,6 @@ function showAllRooms() {
                 <tr>
                     <th>Location</th>
                     <th>방장</th>
-                    <th>부방장</th>
                     <th>방원</th> <!-- 방원 열 추가 -->
                 </tr>
             </thead>
@@ -304,8 +292,8 @@ function showAllRooms() {
         // 방장 추가
         tableHtml += `<td>${room.leader}</td>`;
 
-        // 부방장 추가
-        tableHtml += `<td>${room.subLeader || ""}</td>`; // 부방장이 없으면 빈 문자열 처리
+        // // 부방장 추가
+        // tableHtml += `<td>${room.subLeader || ""}</td>`; // 부방장이 없으면 빈 문자열 처리
 
     // 방원 추가 (방원의 수는 방마다 다를 수 있으므로)
     let membersHtml = room.members.join(" "); // 각 방원의 이름을 공백으로 구분하여 가로로 나열
@@ -366,8 +354,6 @@ function showResolution() {
     resolutionDiv.style.display = "block";
     resolutionDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
 }
-
-
 function showFood() {
     const resultDiv = document.getElementById("foodInfo");
 
@@ -377,7 +363,7 @@ function showFood() {
     // 초기화 후에 h2, p 태그 추가
     resultDiv.innerHTML = ` 
         <h2>Menu</h2>
-        <p>영혼이 배불러도 육신이 배고픈 건 힘들어...</p>
+        <p>...</p>
     `;
 
     // 식단표 데이터 로드
@@ -398,7 +384,7 @@ function showFood() {
             `;
 
             menuData.forEach(menu => {
-                // 메뉴를 나눠서 표시
+                // 메뉴가 2개로 구분되어 있으면 메뉴1과 메뉴2를 각각 다른 셀에 출력
                 if (menu.menu.length > 1 && menu.menu.some(item => item.startsWith("메뉴"))) {
                     const menu1 = menu.menu.find(item => item.startsWith("메뉴1:")) || "";
                     const menu2 = menu.menu.find(item => item.startsWith("메뉴2:")) || "";
@@ -412,12 +398,13 @@ function showFood() {
                         </tr>
                     `;
                 } else {
-                    // 일반적인 메뉴 표시
+                    // 메뉴가 1개일 경우 하나의 셀에 모두 출력
+                    const menuItems = menu.menu.join(", ");
                     tableHtml += `
                         <tr>
                             <td>${menu.date}</td>
                             <td>${menu.time}</td>
-                            <td colspan="2">${menu.menu.join(", ")}</td>
+                            <td colspan="2">${menuItems}</td>
                         </tr>
                     `;
                 }
