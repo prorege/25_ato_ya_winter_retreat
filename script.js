@@ -320,8 +320,11 @@ function showEmergency() {
     emergencyDiv.innerHTML = `
         <h2>비상 연락망</h2>
 
-        <p><strong>보건 스태프: </strong><a href="tel:010-6798-7754">010-8696-5407</a></p>
-        <p><strong>안전(보안) 스태프:</strong> <a href="tel:010-8034-2717">010-8034-2717</a></p>
+        <p><strong>| 보건 스태프 | </strong><br><a href="tel:010-6798-7754">010-8696-5407</a></p>
+        <p><strong>| 안전(보안) 스태프 | </strong><br> <a href="tel:010-9979-3096">010-9979-3096 이찬희 회장</a>
+        <br>
+        <a href="tel:010-7153-3922">010-7153-3922 양세혁 총무
+        </p>
     `;
     emergencyDiv.style.display = "block";
     emergencyDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
