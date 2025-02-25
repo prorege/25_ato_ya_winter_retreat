@@ -100,8 +100,8 @@ header p {
     animation: fadeIn 1s ease-out;
     background-color: rgb(233, 251, 252);
 }
-.grid-item {
-    padding: px 5px;
+.results {
+    padding: 2px 0px;
 }
 
 /* 입력창 및 버튼 스타일 */
