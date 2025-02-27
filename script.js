@@ -111,7 +111,7 @@ function findTeam() {
             } else {
                 resultDiv.innerHTML = `<p>"${name} (${region})"은/는 어떤 팀에도 속하지 않습니다.<br>
                 "만약 등록을 했음에도 검색이 되지 않는다면 
-                <a href="tel:010-8034-2717">010-8034-2717</a>으로 연락해주세요."</p>`;
+                <a href="tel:010-7153-3922">010-7153-3922</a>으로 연락해주세요."</p>`;
                 resultDiv.style.display = "block";
                 resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
             }
@@ -141,7 +141,7 @@ function findTeam() {
     } else {
         resultDiv.innerHTML = `<p>"${name}"은/는 어떤 팀에도 속하지 않습니다.<br>
         "만약 등록을 했음에도 검색이 되지 않는다면 
-        <a href="tel:010-8034-2717">010-8034-2717</a>으로 연락해주세요."</p>`;
+        <a href="tel:010-7153-3922">010-7153-3922</a>으로 연락해주세요."</p>`;
         resultDiv.style.display = "block";
         resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
     }
@@ -185,7 +185,7 @@ function findRoom() {
             } else {
                 resultDiv.innerHTML = `<p>"${name} (${region})"은/는 숙소에 배정되지 않았습니다.<br>
                 "만약 등록을 했음에도 검색이 되지 않는다면 
-                <strong><a href="tel:01095257973">01095257973</a></strong>으로 연락해주세요."</p>`;
+                <strong><a href="tel:010-7153-3922">010-7153-3922</a></strong>으로 연락해주세요."</p>`;
                 resultDiv.style.display = "block";
                 resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
             }
@@ -210,7 +210,7 @@ function findRoom() {
     } else {
         resultDiv.innerHTML = `<p>"${name}"은/는 숙소에 배정되지 않았습니다.<br>
         "만약 등록을 했음에도 검색이 되지 않는다면 
-        <strong><a href="tel:01095257973">01095257973</a></strong>으로 연락해주세요."</p>`;
+        <strong><a href="tel:010-7153-3922">010-7153-3922</a></strong>으로 연락해주세요."</p>`;
         resultDiv.style.display = "block";
         resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
     }
