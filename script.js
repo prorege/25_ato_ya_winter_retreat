@@ -162,41 +162,10 @@ function findRoom() {
         return;
     }
 
-    // 동명이인 예외 처리
-    if (name === "이시원") {
-        // 지역 선택을 위한 팝업을 띄움
-        let region = prompt("동명이인이 존재합니다. 지역을 선택해주세요. (구미 또는 서울)");
-
-        if (region === "구미" || region === "서울") {
-            // 해당 지역을 바탕으로 숙소 정보 찾기
-            const room = roomData.find(room => room.members.includes(name + `(${region})`));
-
-            if (room) {
-                resultDiv.innerHTML = `
-                    <h3>${name}님의 숙소 정보</h3>
-                    <hr>
-                    <h3><strong>숙소 : ${room.location}</strong></h3>
-                    <h4><strong>방장 : ${room.leader} </strong></h4>
-                    <h4><strong>부방장 : ${room.subLeader}</strong></h4>
-                    <p>방원 : ${room.members.join(", ")}</p>
-                `;
-                resultDiv.style.display = "block";
-                resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
-            } else {
-                resultDiv.innerHTML = `<p>"${name} (${region})"은/는 숙소에 배정되지 않았습니다.<br>
-                "만약 등록을 했음에도 검색이 되지 않는다면 
-                <strong><a href="tel:010-7153-3922">010-7153-3922</a></strong>으로 연락해주세요."</p>`;
-                resultDiv.style.display = "block";
-                resultDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
-            }
-        } else {
-            alert("올바른 지역을 선택해주세요.");
-        }
-        return;
-    }
-
-    const room = roomData.find(room => room.members.includes(name));
-
+    const room = roomData.find(room => 
+        room.members.includes(name) || room.leader === name || room.subLeader === name
+    );
+    
     if (room) {
         resultDiv.innerHTML = `
             <h3>${name}님의 숙소 정보</h3>
