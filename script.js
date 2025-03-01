@@ -320,8 +320,7 @@ function showResolution() {
     resetAndHide();
 
     resolutionDiv.innerHTML = `
-        <h2>Resolution</h2>
-        <p>아직 결단문 작성 시간이 되지 않았습니다.</p>
+        <h2><a href="https://forms.gle/Po5nWcFgWxESzVeYA">결단문 바로가기</a></h2>
     `;
     resolutionDiv.style.display = "block";
     resolutionDiv.scrollIntoView({ behavior: 'smooth' });  // 스크롤 이동
